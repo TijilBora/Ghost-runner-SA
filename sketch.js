@@ -34,22 +34,28 @@ function setup() {
 
 function draw() {
   background(255);
+ if(tower.y > 0){
+      tower.y = 300
+    } 
   
   if (gameState === "play") {
     
     if(keyDown("")){
-  
+        ghost.x = ghost.x - 3;
+
       // write a code to move left when left arrow is pressed
     }
     if(keyDown("")){
   
-    
+          ghost.x = ghost.x + 3;
+
       // write a code to move left when right arrow is pressed
       
     }
     if(keyDown("")){
   
-   
+         ghost.velocityY = -10;
+
       // write a code to move up when space arrow is pressed
       
     }
@@ -96,12 +102,20 @@ function spawnDoors()
     //change the depth of the ghost and door
     
      
-
+ghost.depth = door.depth;
+    ghost.depth =1;
     
-    //assign lifetime to the obstacle.lifetime = 300; here  obstacle are door, climber and invisible block
+    //assign lifetime for the  door, climber and invisible block
 
-
+ .lifetime = 800;
+    .lifetime = 800;
+    .lifetime = 800;
     //add each obstacle to the group obstaclesGroup.add(obstacle);here  obstacle are door, climber and invisible block
+    
+     doorsGroup.add();
+    invisibleBlock.debug = true;
+    climbersGroup.add();
+    invisibleBlockGroup.add();
   }
 }
 
