@@ -34,7 +34,7 @@ function setup() {
 
 function draw() {
   background(255);
- if(tower.y > 0){
+ if(tower.y > ){
       tower.y = 300
     } 
   
@@ -68,8 +68,15 @@ function draw() {
       spawnDoors();
 
   
-      //write a code to make climbersGroup collide with ghost change the ghost velocity  
 //write a code to make invisibleBlockGroup collide with ghost destroy the ghost and make gamestate to end.
+     if(climbersGroup.isTouching(ghost)){
+      ghost.velocityY = 0;
+    }
+    if(invisibleBlockGroup.isTouching(ghost) || ghost.y > 600){
+      ghost.destroy();
+      gameState = ""
+    }
+    
   
   drawSprites();
 }
