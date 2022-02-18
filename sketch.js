@@ -33,10 +33,8 @@ function setup() {
 
 
 function draw() {
-  background(255);
- if(tower.y > 300){
-      tower.y = 300
-    } 
+  background(0);
+ 
   
   if (gameState === "play") {
     
@@ -64,6 +62,11 @@ function draw() {
   
    
       //write a condition for infinte scrolling tower
+
+      if(tower.y > 300){
+        tower.y = 300
+      } 
+
     
       spawnDoors();
 
