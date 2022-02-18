@@ -34,25 +34,25 @@ function setup() {
 
 function draw() {
   background(255);
- if(tower.y > ){
+ if(tower.y > 300){
       tower.y = 300
     } 
   
   if (gameState === "play") {
     
-    if(keyDown("")){
-        ghost.x = ghost.x - 3;
+    if(keyDown("left")){
+        ghost.x = ghost.x - 3; 
 
       // write a code to move left when left arrow is pressed
     }
-    if(keyDown("")){
+    if(keyDown("right")){
   
           ghost.x = ghost.x + 3;
 
       // write a code to move left when right arrow is pressed
       
     }
-    if(keyDown("")){
+    if(keyDown("space")){
   
          ghost.velocityY = -10;
 
@@ -73,8 +73,8 @@ function draw() {
       ghost.velocityY = 0;
     }
     if(invisibleBlockGroup.isTouching(ghost) || ghost.y > 600){
-      ghost.
-      gameState = ""
+      ghost.destroy()
+      gameState = "end"
     }
     
   
@@ -98,6 +98,12 @@ function spawnDoors()
     invisibleBlock.width = climber.width;
     invisibleBlock.height = 2;
     //add the random function
+  door.x=Math.round(random(120,400));
+  climber.x=door.x
+  invisibleBlock.x=door.x
+
+
+
     //
     door.addImage(doorImg);
     climber.addImage(climberImg);
@@ -106,23 +112,20 @@ function spawnDoors()
     climber.velocityY = 1;
     invisibleBlock.velocityY = 1;
 
-    //change the depth of the ghost and door
-    
-     
+    //change the depth of the ghost and door     
 ghost.depth = door.depth;
-    ghost.depth =1;
+    ghost.depth +=1;
     
     //assign lifetime for the  door, climber and invisible block
 
- .lifetime = 800;
-    .lifetime = 800;
-    .lifetime = 800;
+    door.lifetime = 800;
+    climber.lifetime = 800;
+    invisibleBlock.lifetime = 800;
     //add each obstacle to the group obstaclesGroup.add(obstacle);here  obstacle are door, climber and invisible block
     
-     doorsGroup.add();
-    invisibleBlock.debug = true;
-    climbersGroup.add();
-    invisibleBlockGroup.add();
+     doorsGroup.add(door);
+    climbersGroup.add(climber);
+    invisibleBlockGroup.add(invisibleBlock);
   }
 }
 
